@@ -12,7 +12,9 @@ app.use(express.json());
 //to allow cross-origin resource sharing 
 app.use(cors())
 
-mongoose.connect("mongodb://localhost:27017/todoApp", { useNewUrlParser: true, useUnifiedTopology: true })
+const url="mongodb://localhost:27017/todoApp"
+
+mongoose.connect(url)
 .then(()=>console.log("connected to MongoDB..."))
 .catch((err)=>console.log(err))
 

@@ -15,3 +15,20 @@ module.exports.saveTodo=async (req,res)=>{
     })
     .catch((err)=>console.log(err))
 }
+
+module.exports.updateTodo=async (req,res)=>{
+    const {_id,text}=req.body;
+    
+    todoModel.findByIdAndUpdate(_id,{text})
+    .then(()=>{res.send("Updated successfully!!")})
+    .catch((err)=>console.log(err))
+
+}
+
+module.exports.deleteTodo=async  (req,res)=>{
+    const {_id}=req.body;
+
+    todoModel.findByIdAndDelete(_id)
+    .then(()=>res.send("Deleted Successfully"))
+    .catch((err)=>console.log(err))
+}
